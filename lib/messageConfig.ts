@@ -1,0 +1,6 @@
+const channelInfo = {
+    };
+
+export {
+    channelInfo
+};

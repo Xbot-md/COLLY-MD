@@ -1,0 +1,40 @@
+import type { BotContext } from '../types.js';
+export default {
+  command: 'ship',
+  aliases: ['couple'],
+  category: 'group',
+  description: 'Randomly ship two members in the group',
+  usage: '.ship',
+  groupOnly: true,
+
+  async handler(sock: any, message: any, args: any, context: BotContext) {
+    const { chatId, channelInfo } = context;
+
+    try {
+      const participants = await sock.groupMetadata(chatId);
+      const ps = participants.participants.map((v: any) => v.id);
+
+      const firstUser = ps[Math.floor(Math.random() * ps.length)];
+      let secondUser;
+
+      do {
+        secondUser = ps[Math.floor(Math.random() * ps.length)];
+      } while (secondUser === firstUser);
+
+      const formatMention = (id: any) => '@' + id.split('@')[0];
+
+      await sock.sendMessage(chatId, {
+        text: `${formatMention(firstUser)} ❤️ ${formatMention(secondUser)}\nCongratulations 💖🍻`,
+        mentions: [firstUser, secondUser],
+        ...channelInfo
+      });
+
+    } catch(error: any) {
+      console.error('Error in ship command:', error);
+      await sock.sendMessage(chatId, {
+        text: '❌ Failed to ship! Make sure this is a group.',
+        ...channelInfo
+      }, { quoted: message });
+    }
+  }
+};

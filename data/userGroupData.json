@@ -1,0 +1,27 @@
+{
+  "users": [],
+  "groups": [],
+  "antilink": {},
+  "antibadword": {},
+  "warnings": {},
+  "sudo": [
+    "40600510451916@lid",
+    "64225852971@s.whatsapp.net",
+    "27725119422@s.whatsapp.net",
+    "27782888166@s.whatsapp.net",
+    "27760532283@s.whatsapp.net",
+    "27703599272@s.whatsapp.net",
+    "40953150738558@lid",
+    "180509271445715@lid",
+    "38762465755340@lid",
+    "2348072689201@s.whatsapp.net",
+    "2348024545108@s.whatsapp.net",
+    "2348158435462@s.whatsapp.net",
+    "27750415673@s.whatsapp.net",
+    "27822544249@s.whatsapp.net"
+  ],
+  "welcome": {},
+  "goodbye": {},
+  "chatbot": {},
+  "autoReaction": false
+}
